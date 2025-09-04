@@ -19,7 +19,7 @@ public class Movie
     [RegularExpression(@"^[a-zA-Z]+[ a-zA-Z-_]*$", ErrorMessage = "Use Characters only")]
     public string? Director { get; set; }
     [Required]
-    //[MaxLength(4, ErrorMessage = "Release year cannot be more than 4 characters")]
+    [Range(1900, 2100, ErrorMessage = "Release Year must be a valid Year.")]
     public int ReleaseYear { get; set; }
 
 }

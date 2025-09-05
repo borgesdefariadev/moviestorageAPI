@@ -19,8 +19,13 @@ public class MovieController : ControllerBase
     }
 
     [HttpGet]
-    public List<Movie> GetMovies()
+    public IEnumerable<Movie> GetMovies()
     {
         return movies;
     }
+
+    public Movie? GetMovieById(int id)
+    {
+        return movies.FirstOrDefault(m => m.Id == id);
+    }   
 }

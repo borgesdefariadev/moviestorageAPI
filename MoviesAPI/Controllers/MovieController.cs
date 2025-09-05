@@ -20,4 +20,10 @@ public class MovieController : ControllerBase
         // Implementation for adding a movie
         movies.Add(movie);
     }
+
+    [HttpGet]
+    public List<Movie> GetMovies()
+    {
+        return movies;
+    }
 }

@@ -21,7 +21,7 @@ public class MovieController : ControllerBase
     [HttpGet("{Id}")]
     public IEnumerable<Movie> GetMovies()
     {
-        return movies;
+        return movies.Skip(50).Take(10);
     }
 
     public Movie? GetMovieById(int id)

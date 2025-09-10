@@ -11,11 +11,12 @@ public class MovieController : ControllerBase
     public static int Id = 1;
 
     [HttpPost]
-    public void AddMovie([FromBody] Movie movie)
+    public IActionResult AddMovie([FromBody] Movie movie)
     {
         // Implementation for adding a movie
         movie.Id = Id++;
         movies.Add(movie);
+        return CreatedAtAction(nameof(GetMovieById), new { id = movie.Id }, movie);
     }
 
     [HttpGet("{Id}")]
@@ -24,8 +25,11 @@ public class MovieController : ControllerBase
         return movies.Skip(skip).Take(take);
     }
 
-    public Movie? GetMovieById(int id)
+    public IActionResult GetMovieById(int id)
     {
-        return movies.FirstOrDefault(m => m.Id == id);
+        var movie = movies.FirstOrDefault(m => m.Id == id);
+        if (movie == null) return NotFound();
+        return Ok();
+
     }   
 }

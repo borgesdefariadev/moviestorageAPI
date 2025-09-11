@@ -6,7 +6,8 @@ namespace MoviesAPI.Models;
 
 public class Movie
 {
-    [Key]    
+    [Key]
+    [Required]
     public int Id { get; set; }
     [Required(ErrorMessage = "Title is Required.")]
     [MaxLength(50, ErrorMessage = "Title cannot be more than 50 characters")]

@@ -24,18 +24,19 @@ public class MovieController : ControllerBase
         return CreatedAtAction(nameof(GetMovieById), new { id = movie.Id }, movie);
     }
 
-    [HttpGet("{Id}")]
-    public IEnumerable<Movie> GetMovies([FromQuery] int skip =0, [FromQuery] int take =10)
+    [HttpGet]
+    public IEnumerable<Movie> GetMovies([FromQuery] int skip = 0, [FromQuery] int take = 50)
     {
         return _context.Movies.Skip(skip).Take(take);
     }
 
+    [HttpGet("{id}")]
     public IActionResult GetMovieById(int id)
     {
         var movie = _context.Movies.
-            FirstOrDefault(m => m.Id == id);
+            FirstOrDefault(movie => movie.Id == id);
         if (movie == null) return NotFound();
-        return Ok();
+        return Ok(movie);
 
     }   
 }

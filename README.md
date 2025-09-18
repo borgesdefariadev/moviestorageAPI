@@ -1,64 +1,64 @@
 API Rest .NetFramework usable for storing movies in Database.
 
 Technologies used:
-.Net6.0
+ASP.NET
 EntityFramework
 MySql Workbench 8.0 
 
-Atributos de Roteamento (Annotations)
-[ApiController] - Define a classe como um controller da API
+Routing Attributes (Annotations)
+[ApiController] - Defines the class as an API controller.
 
-[Route] - Define o caminho base para as rotas do controller
+[Route] - Defines the base route path for the controller's endpoints.
 
-[HttpPost] - Mapeia ações para requisições POST
+[HttpPost] - Maps actions to HTTP POST requests (used for creating resources).
 
-[HttpGet] - Mapeia ações para requisições GET
+[HttpGet] - Maps actions to HTTP GET requests (used for retrieving data).
 
-[HttpPut] - Mapeia ações para requisições PUT
+[HttpPut] - Maps actions to HTTP PUT requests (used for full updates of resources).
 
-[HttpPatch] - Mapeia ações para requisições PATCH
+[HttpPatch] - Maps actions to HTTP PATCH requests (used for partial updates).
 
-[HttpDelete] - Mapeia ações para requisições DELETE
+[HttpDelete] - Maps actions to HTTP DELETE requests (used for deleting resources).
 
-Padrões de Projeto e Arquitetura
-Injeção de Dependência - Uso de construtor para injetar dependências
+Design Patterns and Architecture
+Dependency Injection (DI) - Using the constructor to inject dependencies, promoting loose coupling and testability.
 
-DTOs (Data Transfer Objects) - Para transferência de dados entre camadas
+DTOs (Data Transfer Objects) - Objects used to transfer data between layers, separating the internal entity model from the external API contract.
 
-Separação de Responsabilidades - Controllers focados apenas no HTTP
+Separation of Concerns - Controllers are focused solely on handling HTTP communication.
 
-Técnicas de API RESTful
-Verbos HTTP Semânticos - Uso apropriado de POST, GET, PUT, PATCH, DELETE
+RESTful API Techniques
+Semantic HTTP Verbs - Proper use of POST, GET, PUT, PATCH, and DELETE to indicate action intent.
 
-Paginação - Para limitar quantidade de dados retornados
+Pagination - Limiting the amount of data returned in a single response to improve performance.
 
-CRUD Completo - Create, Read, Update, Delete implementados
+Full CRUD Operations - Create, Read, Update, and Delete functionality is fully implemented.
 
-Atualização Parcial - Com PATCH para updates específicos
+Partial Updates - Using PATCH to apply updates to specific fields without requiring the entire resource.
 
-Integração com Banco de Dados
-Entity Framework - ORM para comunicação com banco de dados
+Database Integration
+Entity Framework (EF) - An Object-Relational Mapper (ORM) used to communicate with the database.
 
-Configuração via appsettings.json - Configurações de runtime
+Configuration via appsettings.json - Runtime and startup settings are managed in an external configuration file.
 
-Banco Local - Desenvolvimento com banco de dados local
+Local Database - Using a local database for development purposes.
 
-Boas Práticas Implementadas
-DTOs de Criação - Para operações de POST
+Implemented Best Practices
+Creation DTOs - Specific DTOs used for POST operations (input).
 
-DTOs de Leitura - Para operações de GET
+Read DTOs - Specific DTOs used for GET operations (output).
 
-Validação em Tempo de Execução - Processamento dinâmico de dados
+Runtime Data Processing - The ability to calculate or include data in DTOs that isn't necessarily stored in the database.
 
-Configuração Externa - Separação de configurações do código
+External Configuration - Separating configuration details from the application code.
 
-Estrutura da Aplicação
-Controllers - Camada de apresentação/API
+Application Structure
+Controllers - The presentation/API layer handling HTTP requests and responses.
 
-Entities - Modelos de domínio
+Entities - Domain models representing the application's data structure.
 
-DTOs - Objetos de transferência de dados
+DTOs - Data Transfer Objects for input and output.
 
-Configurações - Arquivos de configuração externos.
+Configuration Files - External files (like appsettings.json) for application settings.
 
 Had a good time building it.
